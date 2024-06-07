@@ -27,12 +27,12 @@
             function back() {
                 window.location.href = "home";
             }
-             function doDelete(id)
+            function doDelete(id)
             {
                 var c = confirm("Are you sure?");
-                if(c)
+                if (c)
                 {
-                    window.location.href = "delete?pid="+id;
+                    window.location.href = "delete?pid=" + id;
                 }
             }
         </script>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-					
+
                         </div>
                     </div>
                 </div>
@@ -66,26 +66,28 @@
                     <tbody>
                         <c:forEach items="${products}" var="p">
                             <tr>
-                               
+
                                 <td>${p.id}</td>
                                 <td>${p.name}</td>
                                 <td>
-                                    <img src="${p.imageUrl}">
+                                    <img src="${p.imageUrl}" alt="anh">
                                 </td>
                                 <td>${p.price} $</td>
                                 <td>
                                     <a href="load?pid=${p.id}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#" class="delete" data-toggle="modal" onclick="doDelete(${p.id})"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <button class="delete" data-toggle="modal" onclick="doDelete(${p.id})">
+                                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                                    </button>                               
                                 </td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
                 <div>
-                <button type="button" class="btn btn-primary" onclick="back()">Back to home</button>
+                    <button type="button" class="btn btn-primary" onclick="back()">Back to home</button>
+                </div>
             </div>
-            </div>
-            
+
         </div>
         <!-- Edit Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
@@ -135,9 +137,9 @@
                 </div>
             </div>
         </div>
-        
-        
-        
+
+
+
 
 
         <script src="js/ManagerProduct.js" type="text/javascript"></script>

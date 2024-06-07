@@ -18,7 +18,7 @@ import model.Account;
  * @author Admin
  */
 //forgetPassword
-public class forgetPasswordController extends HttpServlet {
+public class ForgetPasswordController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

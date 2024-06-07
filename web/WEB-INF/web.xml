@@ -25,8 +25,8 @@
         <servlet-class>controller.DeleteOrderDetailController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>forgetPasswordController</servlet-name>
-        <servlet-class>controller.forgetPasswordController</servlet-class>
+        <servlet-name>ForgetPasswordController</servlet-name>
+        <servlet-class>controller.ForgetPasswordController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>NewServlet</servlet-name>
@@ -65,7 +65,7 @@
         <url-pattern>/deleteOrderdtails</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>forgetPasswordController</servlet-name>
+        <servlet-name>ForgetPasswordController</servlet-name>
         <url-pattern>/forgetPassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

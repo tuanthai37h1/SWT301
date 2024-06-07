@@ -23,19 +23,19 @@
         </style>
     <body>
         <div class="container">
-            
+
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="edit" method="post">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Product</h4>
-                                <a href="manager"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></a>
+                                <a href="manager"><button type="button" class="close" data-dismiss="modal" >&times;</button></a>
                             </div>
                             <div class="modal-body">					
                                 <div class="form-group">
-                                    <label>ID</label>
-                                    <input value="${product.id}" name="id" type="text" class="form-control"  readonly required>
+                                    <label for="id">ID</label>
+                                    <input value="${product.id}" name="id" id="id" type="text" class="form-control" readonly required>
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>

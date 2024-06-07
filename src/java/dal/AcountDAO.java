@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
-import model.Product;
-
 
 /**
  *
@@ -23,10 +21,10 @@ import model.Product;
 public class AcountDAO extends DBContext {
 
     public List<Account> getAllAccount() {
+        String sql = "SELECT uID,user,pass,isSell,isAdmin,active FROM Account where isAdmin != 1";
         List<Account> list = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM Account where isAdmin != 1";
-            PreparedStatement stm = connection.prepareStatement(sql);
+        try (PreparedStatement stm = connection.prepareStatement(sql);) {
+
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Account account = new Account();
@@ -68,7 +66,7 @@ public class AcountDAO extends DBContext {
         return null;
     }
 
-    public Account checkAccountExistByUserPass(String user,String pass) {
+    public Account checkAccountExistByUserPass(String user, String pass) {
         try {
             String sql = "SELECT * FROM Account where [user] = ? and [pass] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -90,7 +88,7 @@ public class AcountDAO extends DBContext {
         }
         return null;
     }
-    
+
     public Account checkAccountExist(String user) {
         try {
             String sql = "SELECT * FROM Account where [user] = ?";
@@ -174,16 +172,9 @@ public class AcountDAO extends DBContext {
         }
 
     }
-    
-    public static void main(String[] args) {
-        try {
-                    System.out.println(new AcountDAO().getAccountById(4));
 
-        } catch (Exception e) {
-        }
-    }
 
-    public void UpDatePassWord(String pass,String user) {
+    public void UpDatePassWord(String pass, String user) {
         try {
             String sql = "UPDATE [Account]\n"
                     + "   SET [pass] = ?\n"
@@ -197,4 +188,3 @@ public class AcountDAO extends DBContext {
         }
     }
 }
-
